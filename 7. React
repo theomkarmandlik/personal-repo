@@ -1,0 +1,26 @@
+import { useState } from "react";
+
+function App() {
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
+  const [msg, setMsg] = useState("");
+
+  const login = () => {
+    if(user === "admin" && pass === "1234")
+      setMsg("Login Success");
+    else
+      setMsg("Invalid");
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <input onChange={(e)=>setUser(e.target.value)} placeholder="Username" /><br/>
+      <input onChange={(e)=>setPass(e.target.value)} placeholder="Password" /><br/>
+      <button onClick={login}>Login</button>
+      <p>{msg}</p>
+    </div>
+  );
+}
+
+export default App;
