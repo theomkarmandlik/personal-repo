@@ -1,0 +1,27 @@
+ng new myApp
+cd myApp
+ng generate component login
+ng serve
+
+-------------------------------------------
+login.componentes.html
+<h2>Login</h2>
+<input [(ngModel)]="username" placeholder="Username"><br>
+<input [(ngModel)]="password" placeholder="Password"><br>
+<button (click)="login()">Login</button>
+<p>{{message}}</p>
+--------------------------------------------
+login.component.ts
+export class LoginComponent {
+username = '';
+password = '';
+message = '';
+
+login() {
+    if(this.username === 'admin' && this.password === '1234') {
+        this.message = "Login Successful";
+    } else {
+        this.message = "Invalid";
+    }
+}
+}
