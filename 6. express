@@ -1,0 +1,22 @@
+const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({extended:true}));
+
+app.get('/', (req, res) => {
+    res.send(`<form method="POST" action="/login">
+    <input name="user"><br>
+    <input name="pass"><br>
+    <button>Login</button>
+    </form>`);
+});
+
+app.post('/login', (req, res) => {
+    if(req.body.user === "admin" && req.body.pass === "1234") {
+        res.send("Login Successful");
+    } else {
+        res.send("Invalid");
+    }
+});
+
+app.listen(3000);
